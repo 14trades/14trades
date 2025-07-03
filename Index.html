@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>14Trades App</title>
+  <style>
+    :root {
+      --bg-dark: #121212;
+      --bg-light: #ffffff;
+      --text-dark: #ffffff;
+      --text-light: #000000;
+      --accent: #00ffc8;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: var(--bg-dark);
+      color: var(--text-dark);
+      transition: all 0.3s ease-in-out;
+      text-align: center;
+    }
+
+    header {
+      background-color: #1f1f1f;
+      color: var(--accent);
+      padding: 20px;
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    .container {
+      padding: 20px;
+    }
+
+    .upload-box {
+      border: 2px dashed var(--accent);
+      border-radius: 10px;
+      padding: 20px;
+      max-width: 400px;
+      margin: 20px auto;
+    }
+
+    input[type="file"] {
+      display: block;
+      margin: 10px auto;
+    }
+
+    button {
+      background-color: var(--accent);
+      color: black;
+      border: none;
+      padding: 12px 24px;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .results {
+      margin-top: 30px;
+      padding: 20px;
+      background: #1e1e1e;
+      border-radius: 10px;
+      max-width: 400px;
+      margin-left: auto;
+      margin-right: auto;
+      display: none;
+    }
+
+    .theme-toggle {
+      position: fixed;
+      top: 10px;
+      right: 10px;
+      background: #333;
+      color: white;
+      border: none;
+      padding: 10px;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <header>14Trades</header>
+  <button class="theme-toggle" onclick="toggleTheme()">Toggle Theme</button>
+  <div class="container">
+    <div class="upload-box">
+      <h3>Upload Chart Screenshot</h3>
+      <input type="file" id="chartImage" accept="image/*">
+      <button onclick="showResults()">Analyze</button>
+    </div>
+
+    <div class="results" id="resultsBox">
+      <h3 style="color:#00ffc8;">Trade Analysis</h3>
+      <p><strong>Entry:</strong> 1.2785</p>
+      <p><strong>Stop Loss:</strong> 1.2755</p>
+      <p><strong>Take Profit:</strong> 1.2830</p>
+      <p><strong>Reason:</strong> Clean bounce off support, bullish engulfing pattern, good R:R setup.</p>
+    </div>
+  </div>
+
+  <script>
+    function showResults() {
+      document.getElementById("resultsBox").style.display = "block";
+    }
+
+    function toggleTheme() {
+      const body = document.body;
+      if (body.style.backgroundColor === 'white') {
+        body.style.backgroundColor = '#121212';
+        body.style.color = '#ffffff';
+      } else {
+        body.style.backgroundColor = 'white';
+        body.style.color = '#000000';
+      }
+    }
+  </script>
+</body>
+</html>
